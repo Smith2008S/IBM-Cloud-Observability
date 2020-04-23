@@ -38,7 +38,9 @@ Obtenga la clave de acceso de Sysdig.
 1.	Obtenga la clave de acceso de Sysdig. 
 En IBMCLOUD, haga click sobre el “menú de hamburguesa” y seleccione “observabilidad”.
 
-![Reference Despligue](https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagne001.PNG)
+<p align="center">
+  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagne001.PNG">
+</p>
 
 2.	Una vez se encuentre dentro de observabilidad, selecciones “Monitoring”, deberá aparecer la instancia que previamente ha sido creada. 
 3.	Haga click en los tres puntos y seleccione “Obtain Key”.
@@ -52,10 +54,5 @@ Para más información sobre los puntos finales disponibles por regiones, visite
 
 6. Desde la CLI utilizando SSH, despliegue el agente Sysdig en su servidor; para ello habra PowerShell y utilice el siguiente comando para ingresar a IBMCLOUD.
 
-{% filename %}     docker pull ibmterraform/terraform-provider-ibm-docker {% endfilename %}
+` docker pull ibmterraform/terraform-provider-ibm-docker 
 
-
-
-<p align="center">
-  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagne001.PNG">
-</p>
