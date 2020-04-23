@@ -1,10 +1,10 @@
-# IBM-Cloud-Observability
+# IBM-Cloud-Observability :cloud:
 
 ## APROVISIONAMIENTO DE MONITORING WITH SYSDIG PARA UN HOST UBUNTU 
 
 Monitoring with sysdig es una herramienta de vigilancia que brinda IBM y permite tener supervisión sobre diferentes servicios de IBM CLOUD. En esta guía se explicará el paso a paso para el aprovisionamiento de Monitoring With Sysdig en un Host ubuntu.
 
-### Antes de empezar
+### Antes de empezar :computer:
 1.	Debe contar con una cuenta de IBM Cloud que disponga con los permisos necesarios para el aprovisionamiento de Monitoring With Sysdig. Para más información se recomienda visitar el siguien link:
 https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Sysdig-iam.
 2.	Instale la CLI de IBM Cloud y el plugin de la CLI de Kubernetes. Para obtener más información, consulte Instalación de la CLI de IBM Cloud.
