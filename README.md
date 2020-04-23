@@ -54,5 +54,5 @@ Para más información sobre los puntos finales disponibles por regiones, visite
 
 6. Desde la CLI utilizando SSH, despliegue el agente Sysdig en su servidor; para ello habra PowerShell y utilice el siguiente comando para ingresar a IBMCLOUD.
 
-` docker pull ibmterraform/terraform-provider-ibm-docker ` 
+` Ibmcloud login -sso  ` 
 
