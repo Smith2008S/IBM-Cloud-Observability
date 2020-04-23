@@ -42,11 +42,16 @@ En IBMCLOUD, haga click sobre el “menú de hamburguesa” y seleccione “obse
 2.	Una vez se encuentre dentro de observabilidad, selecciones “Monitoring”, deberá aparecer la instancia que previamente ha sido creada. 
 3.	Haga click en los tres puntos y seleccione “Obtain Key”.
 
-![Reference Despligue](https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagen002.PNG)
+![Reference](https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagen002.PNG)
+
 4.	Copie la clave que aparece en pantalla.
-	Obtenga la URL donde se encuentran los puntos finales de Sysdig.
-5.	Como esta guía está enfocada en el aprovisionamiento de Monitoring With Sysdig en la región de EE.UU sur, la URL dónde se encuentra el punto final es la siguiente: ingest.us-south.monitoring.cloud.ibm.com.
-Para más información sobre los puntos finales disponibles por regiones, visite el siguiente enlace: puntos finales del recopilador de Sysdig.
-	Desde la CLI utilizando SSH, despliegue el agente Sysdig en su servidor.
-6.	Habra PowerShell y utilice el siguiente comando para ingresar a IBMCLOUD.
+5.	Obtenga la URL donde se encuentran los puntos finales de Sysdig, como esta guía está enfocada en el aprovisionamiento de Monitoring With Sysdig en la región de EE.UU sur, la URL dónde se encuentra el punto final de Sysdig es la siguiente: ingest.us-south.monitoring.cloud.ibm.com.
+Para más información sobre los puntos finales disponibles por regiones, visite el siguiente enlace: https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion
+
+6. Desde la CLI utilizando SSH, despliegue el agente Sysdig en su servidor; para ello habra PowerShell y utilice el siguiente comando para ingresar a IBMCLOUD.
+
+{% filename %}     docker pull ibmterraform/terraform-provider-ibm-docker {% endfilename %}
+
+
+
 
