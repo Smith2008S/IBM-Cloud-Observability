@@ -57,5 +57,5 @@ Para más información sobre los puntos finales disponibles por regiones, visite
 
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagne001.PNG">
+  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagne001.PNG">
 </p>
