@@ -54,5 +54,55 @@ Para más información sobre los puntos finales disponibles por regiones, visite
 
 6. Desde la CLI utilizando SSH, despliegue el agente Sysdig en su servidor; para ello habra PowerShell y utilice el siguiente comando para ingresar a IBMCLOUD.
 
-` Ibmcloud login -sso  ` 
+    ` Ibmcloud login -sso  ` 
 
+7.	Se le redirigirá a una página web, copie el código proporcionado y péguelo en el PowerShell.
+8.	A continuación, seleccione la cuenta en dónde se encuentre desplegado el servidor de Ubuntu. El proceso hasta este paso deberá verse como se muestra en la siguiente imagen:
+
+<p align="center">
+  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagen003.PNG">
+</p>
+
+9.	Conéctese a su servidor Ubuntu utilizando el siguiente comando:
+   `ssh -i  <dirección donde se encuentra la llave publica> root@<Ip flotante del servidor>`
+10.	Una vez este conectado a su servidor ejecute el siguiente comando:
+   `curl -s https://s3.amazonaws.com/download.draios.com/stable/install-agent | sudo bash -s -- --access_key SYSDIG_ACCES_KEY --collector COLLECTOR_ENDPOINT --collector_port 6443 --secure true --tags example_tag:example_value `
+Donde:
+•	SYSDIG_ACCESS_KEY es la clave de ingestión de la instancia que ha recuperado anteriormente. (instrucción 4)
+•	COLLECTOR_ENDPOINT es el URL de ingestión de la región en la que está disponible la instancia de supervisión que ha recuperado anteriormente. (instrucción 5)
+•	TAG_DATA son etiquetas separadas por comas con el formato NOMBRE_ETIQUETA_VALOR:ETIQUETA. Puede asociar una o varias etiquetas al agente de Sysdig. Por ejemplo: role:serviceX,location:us-south. Más adelante podrá utilizar estas etiquetas para identificar las métricas del entorno en el que se ejecuta el agente.
+•	Establezca sysdig_capture_enabled en false para inhabilitar la característica de captura de Sysdig. De forma predeterminada, está establecido en true. Para obtener más información, consulte Cómo trabajar con capturas.
+Una vez ejecutado el comando, comenzará el proceso de configuración en el servidor. Deberá verse como se muestra en la siguiente imagen:
+
+<p align="center">
+  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_HostUbuntu/Imagenes/Imagen004.PNG">
+</p>
+
+### Paso 3. Iniciar la interfaz de usuario web de Sysdig
+Para iniciar la interfaz de usuario web de Sysdig a través de la consola IBM Cloud, siga los pasos siguientes.
+Solo puede tener una sesión de interfaz de usuario web abierta por navegador.
+1.	Inicie una sesión en su cuenta de IBM Cloud  .
+Cuando inicia una sesión con su ID de usuario y su contraseña, se abre el panel de control de IBM Cloud.
+2.	En el menú  , seleccione Observabilidad.
+3.	Seleccione Supervisión. Se muestra la lista de instancias que están disponibles en IBM Cloud.
+4.	Localice su instancia y pulse Ver Sysdig.
+•	Primera vez: como ya ha instalado el agente de Sysdig, puede saltarse los pasos del asistente de instalación, iniciación y realización de la incorporación.
+•	Siguiente veces: se abre la vista Explorar.
+Si el agente de Sysdig no se ha instalado correctamente, si apunta a un punto final de ingestión incorrecto o si la clave de acceso es incorrecta, la página que se abre le indica qué debe hacer a continuación.
+Por ejemplo, si el agente de Sysdig no se ha instalado correctamente, no puede saltarse el asistente de instalación. Es posible que aparezca un mensaje parecido al siguiente:
+Waiting for the first node to connect... Go ahead and follow the instructions below.
+Puede intentar las acciones siguientes:
+•	Verifique que está utilizando el punto final ingest y no el punto final de Sysdig.
+•	Verifique que la clave de acceso sea correcta.
+•	Siga las instrucciones y repita los pasos de esta guía de aprendizaje.
+
+### Paso 4. Supervisar el servidor Ubuntu
+Puede supervisar el servidor Ubuntu en la vista EXPLORAR que está disponible a través de la interfaz de usuario web. Esta vista constituye el punto de partida para solucionar problemas y supervisar la infraestructura. Es la página de inicio predeterminada de la interfaz de usuario web para los usuarios.
+En la sección Host y contenedores, encontrará la entrada correspondiente al servidor Ubuntu. Pulse Host y contenedores  para cambiar los orígenes de datos. A continuación, seleccione el servidor Ubuntu. Los datos que se muestran corresponden al servidor Ubuntu que seleccione.
+Por ejemplo, para configurar códigos de colores para una columna, siga los pasos siguientes:
+1.	Seleccione una columna. Mueva el puntero del ratón sobre el título de la columna. A continuación, seleccione el icono de lápiz.
+2.	Conmute la barra para habilitar la codificación por colores.
+3.	Defina valores para los distintos umbrales.
+### Pasos siguientes
+Cree un panel de control personalizado. Para obtener más información, consulte Cómo trabajar con paneles de control.
+También puede aprender sobre las alertas. Para obtener más información, consulte Cómo trabajar con alertas.
