@@ -67,7 +67,9 @@ Para más información sobre los puntos finales disponibles por regiones, visite
    `ssh -i  <dirección donde se encuentra la llave publica> root@<Ip flotante del servidor>`
 10.	Una vez este conectado a su servidor ejecute el siguiente comando:
    `curl -s https://s3.amazonaws.com/download.draios.com/stable/install-agent | sudo bash -s -- --access_key SYSDIG_ACCES_KEY --collector COLLECTOR_ENDPOINT --collector_port 6443 --secure true --tags example_tag:example_value `
+   
 Donde:
+
 •	SYSDIG_ACCESS_KEY es la clave de ingestión de la instancia que ha recuperado anteriormente. (instrucción 4)
 •	COLLECTOR_ENDPOINT es el URL de ingestión de la región en la que está disponible la instancia de supervisión que ha recuperado anteriormente. (instrucción 5)
 •	TAG_DATA son etiquetas separadas por comas con el formato NOMBRE_ETIQUETA_VALOR:ETIQUETA. Puede asociar una o varias etiquetas al agente de Sysdig. Por ejemplo: role:serviceX,location:us-south. Más adelante podrá utilizar estas etiquetas para identificar las métricas del entorno en el que se ejecuta el agente.
@@ -79,6 +81,7 @@ Una vez ejecutado el comando, comenzará el proceso de configuración en el serv
 </p>
 
 ### Paso 3. Iniciar la interfaz de usuario web de Sysdig
+
 Para iniciar la interfaz de usuario web de Sysdig a través de la consola IBM Cloud, siga los pasos siguientes.
 Solo puede tener una sesión de interfaz de usuario web abierta por navegador.
 1.	Inicie una sesión en su cuenta de IBM Cloud  .
