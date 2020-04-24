@@ -296,7 +296,7 @@ Para volver a la tabla Explorar completa, pulse el botón **X (volver a la tabla
 
 ### Pasos siguientes
 Cree un panel de control personalizado. Para obtener más información, consulte [Cómo trabajar con paneles de control.](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-dashboards&locale=es#dashboards)
-También puede aprender sobre las alertas. Para obtener más información, consulte [Cómo trabajar con alertas].(https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-monitoring&locale=es#monitoring_alerts)
+También puede aprender sobre las alertas. Para obtener más información, consulte [Cómo trabajar con alertas](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-monitoring&locale=es#monitoring_alerts).
 
 
 
