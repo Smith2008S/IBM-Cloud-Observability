@@ -1,6 +1,6 @@
 # IBM-Cloud-Observability :cloud:
 
-## APROVISIONAMIENTO DE MONITORING WITH SYSDIG PARA UN HOST UBUNTU 
+## APROVISIONAMIENTO DE MONITORING WITH SYSDIG PARA UN HOST UBUNTU :server:
 
 Monitoring with sysdig es una herramienta de vigilancia que brinda IBM y permite tener supervisión sobre diferentes servicios de IBM CLOUD. En esta guía se explicará el paso a paso para el aprovisionamiento de Monitoring With Sysdig en un Host ubuntu.
 
@@ -109,3 +109,21 @@ Por ejemplo, para configurar códigos de colores para una columna, siga los paso
 ### Pasos siguientes
 Cree un panel de control personalizado. Para obtener más información, consulte Cómo trabajar con paneles de control.
 También puede aprender sobre las alertas. Para obtener más información, consulte Cómo trabajar con alertas.
+
+
+# IBM-Cloud-Observability :cloud:
+
+## APROVISIONAMIENTO DE MONITORING WITH SYSDIG PARA CLUSTER DE KUBERNETES :cluster:
+
+Monitoring with sysdig es una herramienta de vigilancia que brinda IBM y permite tener supervisión sobre diferentes servicios de IBM CLOUD. En esta guía se explicará el paso a paso para el aprovisionamiento de Monitoring With Sysdig en un Clúster de Kubernetes.
+
+Antes de empezar
+1.	Debe contar con una cuenta de IBM Cloud que disponga con los permisos necesarios para el aprovisionamiento de Monitoring With Sysdig. Para más información se recomienda visitar el siguien link:
+https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Sysdig-iam.
+2.	Instale la CLI de IBM Cloud y el plugin de la CLI de Kubernetes. Para obtener más información, consulte Instalación de la CLI de IBM Cloud.
+3.	Cree un clúster o utilice un clúster de IBM Cloud Kubernetes Service existente.
+•	El clúster debe ejecutar Kubernetes versión 1.10 o superior.
+4.	Asegúrese de que a su ID de usuario se le asignen las siguientes políticas de IBM® Cloud Identity and Access Management:
+Para obtener más información sobre los roles de IAM de IBM Cloud™ Kubernetes Service, consulte el siguiente enlace :
+https://cloud.ibm.com/docs/containers?topic=containers-access_reference&locale=es#access_reference
+
