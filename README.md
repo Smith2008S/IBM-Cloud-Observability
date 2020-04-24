@@ -93,15 +93,21 @@ Cuando inicia una sesión con su ID de usuario y su contraseña, se abre el pane
 2.	En el menú  , seleccione Observabilidad.
 3.	Seleccione Supervisión. Se muestra la lista de instancias que están disponibles en IBM Cloud.
 4.	Localice su instancia y pulse Ver Sysdig.
-•	Primera vez: como ya ha instalado el agente de Sysdig, puede saltarse los pasos del asistente de instalación, iniciación y realización de la incorporación.
-•	Siguiente veces: se abre la vista Explorar.
+
+-	Primera vez: como ya ha instalado el agente de Sysdig, puede saltarse los pasos del asistente de instalación, iniciación y realización de la incorporación.
+
+-	Siguiente veces: se abre la vista Explorar.
 Si el agente de Sysdig no se ha instalado correctamente, si apunta a un punto final de ingestión incorrecto o si la clave de acceso es incorrecta, la página que se abre le indica qué debe hacer a continuación.
 Por ejemplo, si el agente de Sysdig no se ha instalado correctamente, no puede saltarse el asistente de instalación. Es posible que aparezca un mensaje parecido al siguiente:
 Waiting for the first node to connect... Go ahead and follow the instructions below.
+
 Puede intentar las acciones siguientes:
-•	Verifique que está utilizando el [punto final](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion) `ingest`y no el punto final de Sysdig.
-•	Verifique que la [clave de acceso](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-access_key&locale=es) sea correcta.
-•	Siga las instrucciones y repita los pasos de esta guía de aprendizaje.
+
+-	Verifique que está utilizando el [punto final](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion) `ingest`y no el punto final de Sysdig.
+
+-	Verifique que la [clave de acceso](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-access_key&locale=es) sea correcta.
+
+-	Siga las instrucciones y repita los pasos de esta guía de aprendizaje.
 
 ### Paso 4. Supervisar el servidor Ubuntu
 Puede supervisar el servidor Ubuntu en la vista EXPLORAR que está disponible a través de la interfaz de usuario web. Esta vista constituye el punto de partida para solucionar problemas y supervisar la infraestructura. Es la página de inicio predeterminada de la interfaz de usuario web para los usuarios.
