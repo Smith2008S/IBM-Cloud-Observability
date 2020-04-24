@@ -178,5 +178,112 @@ En IBMCLOUD, haga click sobre el “menú de hamburguesa” y seleccione *“obs
 
 4.	Copie la clave que aparece en pantalla.
 
-5.	Obtenga la URL donde se encuentran los puntos finales de Sysdig, como esta guía está enfocada en el aprovisionamiento de Monitoring With Sysdig en la región de EE.UU sur, la URL dónde se encuentra el punto final de Sysdig es la siguiente: ingest.us-south.monitoring.cloud.ibm.com.
+5.	Obtenga la URL donde se encuentran los puntos finales de Sysdig, como esta guía está enfocada en el aprovisionamiento de Monitoring With Sysdig en la región de EE.UU sur, la URL dónde se encuentra el punto final de Sysdig es la siguiente: 
+`*ingest.us-south.monitoring.cloud.ibm.com*`.
+
 Para más información sobre los puntos finales disponibles por regiones, visite el siguiente enlace: [Puntos finales del recopilador de Sysdig](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion)
+
+6.	En IBMCLOUD navegue a **“lista de recursos”** luego a **“Clústeres”**, y seleccione el clúster que desea configurar para monitorearlo.
+
+7.	Una vez se encuentre dentro de la visión general de la página del clúster, oprima en el botón **“Actions”** y seleccione **“terminal web”**.
+
+AQUI VA CAPTURA1
+
+8.	Se deberá desplegar en la parte inferior de la pantalla el terminal web del clúster.
+Consejo: Para mayor comodidad, haga click sobre el cuadrado que aparece en la esquina superior derecha de la terminal, esto le permitirá utilizarlo en otra pestaña del navegador.
+
+9.	Dentro del terminal web ejecute el siguiente comando:
+`curl -sL https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/IBMCloud-Kubernetes-Service/install-agent-k8s.sh | bash -s -- -a SYSDIG_ACCESS_KEY -c COLLECTOR_ENDPOINT -t TAG_DATA -ac 'sysdig_capture_enabled: false'`
+
+-	**SYSDIG_ACCESS_KEY** es la clave de ingestión de la instancia que ha recuperado anteriormente. (instrucción 4)
+
+-	**COLLECTOR_ENDPOINT** es el URL de ingestión de la región en la que está disponible la instancia de supervisión que ha recuperado anteriormente. (instrucción 5)
+
+-	**TAG_DATA** son etiquetas separadas por comas con el formato NOMBRE_ETIQUETA_VALOR:ETIQUETA. Puede asociar una o varias etiquetas al agente de Sysdig. Por ejemplo: role:serviceX,location:us-south. Más adelante podrá utilizar estas etiquetas para identificar las métricas del entorno en el que se ejecuta el agente.
+
+-	Establezca **sysdig_capture_enabled** en false para inhabilitar la característica de captura de Sysdig. De forma predeterminada, está establecido en true. Para obtener más información, consulte [Cómo trabajar con capturas](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-captures&locale=es#captures).
+
+10.	Verifique que el agente de Sysdig se ha creado correctamente y compruebe su estado. Ejecute el siguiente comando:
+
+` kubectl get pods -n ibm-observe`
+
+El despliegue se realiza correctamente cuando se ven una o varios pods de `sysdig-agent`. El número de pods de `sysdig-agent` es igual al número de nodos trabajadores del clúster. Todos los pods deben estar en un estado `Running`.
+
+### Paso 3. Iniciar la interfaz de usuario web de Sysdig
+
+Para iniciar la interfaz de usuario web de Sysdig a través de la consola IBM Cloud, siga los pasos siguientes.
+
+Solo puede tener una sesión de interfaz de usuario web abierta por navegador.
+
+1.	[Inicie una sesión en su cuenta de IBM Cloud  .](https://cloud.ibm.com/login)
+Cuando inicia una sesión con su ID de usuario y su contraseña, se abre el panel de control de IBM Cloud.
+
+2.	En el menú  , seleccione **Observabilidad**.
+
+3.	Seleccione **Monitoring**. Se muestra la lista de instancias que están disponibles en IBM Cloud.
+
+4.	Localice su instancia y pulse **View Sysdig**.
+
+-	Primera vez: como ya ha instalado el agente de Sysdig, puede saltarse los pasos del asistente de instalación, iniciación y realización de la incorporación.
+-	Siguiente veces: se abre la vista Explorar.
+
+Si el agente de Sysdig no se ha instalado correctamente, si apunta a un punto final de ingestión incorrecto o si la clave de acceso es incorrecta, la página que se abre le indica qué debe hacer a continuación.
+
+Por ejemplo, si el agente de Sysdig no se ha instalado correctamente, no puede saltarse el asistente de instalación. Es posible que aparezca un mensaje parecido al siguiente:
+
+_Waiting for the first node to connect... Go ahead and follow the instructions below._
+
+Puede intentar las acciones siguientes:
+
+-	Verifique que está utilizando el [punto final](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion) `ingest`y no el punto final de Sysdig.
+
+-	Verifique que la [clave de acceso](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-access_key&locale=es) sea correcta.
+
+-	Siga las instrucciones y repita los pasos de esta guía de aprendizaje.
+
+
+### Paso 4: Supervisar el clúster
+
+Puede supervisar el clúster en la vista *EXPLORE* que está disponible a través de la interfaz de usuario web de Sysdig. Esta vista es la página de inicio predeterminada y el punto de partida para resolver problemas y supervisar la infraestructura y los recursos del clúster.
+
+En la sección Host y contenedores, puede ver la tabla Explorar, que es una lista de los nodos trabajadores de su clúster que están reenviando métricas a la instancia de *Monitoring*. Cada entrada de nodo trabajador representa un grupo de objetos relacionados de la infraestructura para ese nodo trabajador.
+
+Pulse **Host y contenedores**  para cambiar los orígenes de datos. A continuación, seleccione un nodo trabajador. Los datos que se muestran corresponden al nodo trabajador que ha seleccionado. Si pulsa **Volver a la tabla Explorar**, se muestra la tabla Explorar.
+
+**Personalización de la tabla Explorar**
+
+Puede personalizar la tabla Explorar.
+
+-	Cada columna muestra una métrica diferente.
+
+-	Puede configurar cada métrica individualmente.
+
+-	Puede cambiar el orden de las columnas.
+
+Tenga en cuenta que, cuando se hacen cambios en el orden de las columnas existentes, el cambio se aplica a las distintas agrupaciones mientras dure la sesión. Si añade o elimina una columna, el cambio es permanente.
+
+-	También puede configurar colores para resaltar valores y facilitar su lectura.
+
+Por ejemplo, para configurar códigos de colores para una columna, siga los pasos siguientes:
+
+1.	Seleccione una columna. Mueva el puntero del ratón sobre el título de la columna. A continuación, seleccione el icono de lápiz.
+
+2.	Conmute la barra para habilitar la codificación por colores.
+
+3.	Defina valores para los distintos umbrales.
+
+**Personalización de paneles de control**
+
+Para ver más detalles acerca de un nodo trabajador concreto, pulse en la entrada de la infraestructura y se abrirá en la tabla el panel de control _Visión general por host_. Puede explorar diferentes paneles de control y métricas pulsando el icono 
+
+CAPTURA2
+
+Tenga en cuenta que solo puede seleccionar métricas y paneles de control que sean relevantes para el nodo trabajador seleccionado.
+Para volver a la tabla Explorar completa, pulse el botón **X (volver a la tabla Explorar)**.
+
+### Pasos siguientes
+Cree un panel de control personalizado. Para obtener más información, consulte [Cómo trabajar con paneles de control.](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-dashboards&locale=es#dashboards)
+También puede aprender sobre las alertas. Para obtener más información, consulte [Cómo trabajar con alertas].(https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-monitoring&locale=es#monitoring_alerts)
+
+
+
