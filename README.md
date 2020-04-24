@@ -7,15 +7,15 @@ Monitoring with sysdig es una herramienta de vigilancia que brinda IBM y permite
 ### Antes de empezar :computer:
 1.	Debe contar con una cuenta de IBM Cloud que disponga con los permisos necesarios para el aprovisionamiento de Monitoring With Sysdig. Para más información se recomienda visitar el siguien link:
 https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Sysdig-iam.
-2.	Instale la CLI de IBM Cloud y el plugin de la CLI de Kubernetes. Para obtener más información, consulte Instalación de la CLI de IBM Cloud.
+2.	Instale la CLI de IBM Cloud y el plugin de la CLI de Kubernetes. Para obtener más información, consulte [Instalación de la CLI de IBM Cloud.](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=es)
 3.	Cree un servidor ubuntu.
 4.	Asegúrese de que a su ID de usuario se le asignen las siguientes políticas de IBM® Cloud Identity and Access Management:
-Para obtener más información sobre los roles de IAM de IBM Cloud™ Kubernetes Service, consulte Permisos de acceso de usuario.
+Para obtener más información sobre los roles de IAM de IBM Cloud™ Kubernetes Service, consulte [Permisos de acceso de usuario.](https://cloud.ibm.com/docs/containers?topic=containers-access_reference&locale=es#access_reference)
 
 ### Paso 1: Suministrar una instancia de IBM Cloud Monitoring with Sysdig
-En esta guía de aprendizaje de iniciación se ofrecen instrucciones para suministrar una instancia en IBM Cloud Monitoring with Sysdig en la región EE. UU. sur. Para obtener más información sobre las regiones soportadas, consulte el apartado Regiones.
+En esta guía de aprendizaje de iniciación se ofrecen instrucciones para suministrar una instancia en IBM Cloud Monitoring with Sysdig en la región EE. UU. sur. Para obtener más información sobre las regiones soportadas, consulte el apartado [Regiones](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es).
 Para suministrar una instancia de IBM Cloud Monitoring with Sysdig mediante la interfaz de usuario de IBM Cloud, siga los pasos siguientes:
-1.	Inicie una sesión en su cuenta de IBM Cloud  .
+1.	[Inicie una sesión en su cuenta de IBM Cloud](https://cloud.ibm.com/login)  .
 Cuando inicia una sesión con su ID de usuario y su contraseña, se abre la interfaz de usuario de IBM Cloud.
 2.	Pulse “Catálogo”. Se abrirá la lista de servicios disponibles en IBM Cloud.
 3.	Para filtrar la lista de servicios que se visualiza, seleccione la categoría “Herramientas de desarrollador”.
@@ -27,7 +27,7 @@ Puede suministrar la instancia en cualquier grupo de recursos en el que tenga pe
 De forma predeterminada, está establecido el grupo de recursos predeterminado (default).
 8.	Seleccione el plan de servicio “Prueba”.
 De forma predeterminada, se selecciona el plan de Prueba.
-Para obtener más información acerca de los otros planes de servicio, consulte Planes de servicio.
+Para obtener más información acerca de los otros planes de servicio, consulte [Planes de servicio.](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-pricing_plans&locale=es#pricing_plans)
 9.	Pulse Crear.
 Después de suministrar una instancia, se abre el panel de control Observabilidad y se muestran detalles correspondientes a las instancias de Supervisión.
 ### Paso 2: Configurar el servidor Ubuntu para que envíe métricas a la instancia
@@ -50,7 +50,7 @@ En IBMCLOUD, haga click sobre el “menú de hamburguesa” y seleccione “obse
 4.	Copie la clave que aparece en pantalla.
 
 5.	Obtenga la URL donde se encuentran los puntos finales de Sysdig, como esta guía está enfocada en el aprovisionamiento de Monitoring With Sysdig en la región de EE.UU sur, la URL dónde se encuentra el punto final de Sysdig es la siguiente: ingest.us-south.monitoring.cloud.ibm.com.
-Para más información sobre los puntos finales disponibles por regiones, visite el siguiente enlace: https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion
+Para más información sobre los puntos finales disponibles por regiones, visite el siguiente enlace: [Puntos finales del recopilador de Sysdig](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion)
 
 6. Desde la CLI utilizando SSH, despliegue el agente Sysdig en su servidor; para ello habra PowerShell y utilice el siguiente comando para ingresar a IBMCLOUD.
 
@@ -70,10 +70,10 @@ Para más información sobre los puntos finales disponibles por regiones, visite
    
 Donde:
 
-•	SYSDIG_ACCESS_KEY es la clave de ingestión de la instancia que ha recuperado anteriormente. (instrucción 4)
-•	COLLECTOR_ENDPOINT es el URL de ingestión de la región en la que está disponible la instancia de supervisión que ha recuperado anteriormente. (instrucción 5)
-•	TAG_DATA son etiquetas separadas por comas con el formato NOMBRE_ETIQUETA_VALOR:ETIQUETA. Puede asociar una o varias etiquetas al agente de Sysdig. Por ejemplo: role:serviceX,location:us-south. Más adelante podrá utilizar estas etiquetas para identificar las métricas del entorno en el que se ejecuta el agente.
-•	Establezca sysdig_capture_enabled en false para inhabilitar la característica de captura de Sysdig. De forma predeterminada, está establecido en true. Para obtener más información, consulte Cómo trabajar con capturas.
+•	**SYSDIG_ACCESS_KEY** es la clave de ingestión de la instancia que ha recuperado anteriormente. (instrucción 4)
+•	**COLLECTOR_ENDPOINT** es el URL de ingestión de la región en la que está disponible la instancia de supervisión que ha recuperado anteriormente. (instrucción 5)
+•	**TAG_DATA** son etiquetas separadas por comas con el formato NOMBRE_ETIQUETA_VALOR:ETIQUETA. Puede asociar una o varias etiquetas al agente de Sysdig. Por ejemplo: role:serviceX,location:us-south. Más adelante podrá utilizar estas etiquetas para identificar las métricas del entorno en el que se ejecuta el agente.
+•	Establezca **sysdig_capture_enabled** en false para inhabilitar la característica de captura de Sysdig. De forma predeterminada, está establecido en true. Para obtener más información, consulte [Cómo trabajar con capturas] (https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-captures&locale=es#captures).
 Una vez ejecutado el comando, comenzará el proceso de configuración en el servidor. Deberá verse como se muestra en la siguiente imagen:
 
 <p align="center">
@@ -84,7 +84,7 @@ Una vez ejecutado el comando, comenzará el proceso de configuración en el serv
 
 Para iniciar la interfaz de usuario web de Sysdig a través de la consola IBM Cloud, siga los pasos siguientes.
 Solo puede tener una sesión de interfaz de usuario web abierta por navegador.
-1.	Inicie una sesión en su cuenta de IBM Cloud  .
+1.	[Inicie una sesión en su cuenta de IBM Cloud](https://cloud.ibm.com/login)  .
 Cuando inicia una sesión con su ID de usuario y su contraseña, se abre el panel de control de IBM Cloud.
 2.	En el menú  , seleccione Observabilidad.
 3.	Seleccione Supervisión. Se muestra la lista de instancias que están disponibles en IBM Cloud.
@@ -95,8 +95,8 @@ Si el agente de Sysdig no se ha instalado correctamente, si apunta a un punto fi
 Por ejemplo, si el agente de Sysdig no se ha instalado correctamente, no puede saltarse el asistente de instalación. Es posible que aparezca un mensaje parecido al siguiente:
 Waiting for the first node to connect... Go ahead and follow the instructions below.
 Puede intentar las acciones siguientes:
-•	Verifique que está utilizando el punto final ingest y no el punto final de Sysdig.
-•	Verifique que la clave de acceso sea correcta.
+•	Verifique que está utilizando el [punto final](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion) `ingest`y no el punto final de Sysdig.
+•	Verifique que la [clave de acceso](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-access_key&locale=es) sea correcta.
 •	Siga las instrucciones y repita los pasos de esta guía de aprendizaje.
 
 ### Paso 4. Supervisar el servidor Ubuntu
@@ -107,8 +107,9 @@ Por ejemplo, para configurar códigos de colores para una columna, siga los paso
 2.	Conmute la barra para habilitar la codificación por colores.
 3.	Defina valores para los distintos umbrales.
 ### Pasos siguientes
-Cree un panel de control personalizado. Para obtener más información, consulte Cómo trabajar con paneles de control.
-También puede aprender sobre las alertas. Para obtener más información, consulte Cómo trabajar con alertas.
+-Cree un panel de control personalizado. Para obtener más información, consulte [Cómo trabajar con paneles de control](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-dashboards&locale=es#dashboards)
+
+-También puede aprender sobre las alertas. Para obtener más información, consulte [Cómo trabajar con alertas](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-monitoring&locale=es#monitoring_alerts).
 
 
 # IBM-Cloud-Observability :cloud:
