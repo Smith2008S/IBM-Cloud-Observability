@@ -124,7 +124,11 @@ Por ejemplo, para configurar códigos de colores para una columna, siga los paso
 
 # IBM-Cloud-Observability :cloud:
 
-## APROVISIONAMIENTO DE MONITORING WITH SYSDIG PARA CLUSTER DE KUBERNETES :cluster:
+## APROVISIONAMIENTO DE MONITORING WITH SYSDIG PARA CLUSTER DE KUBERNETES 
+
+<p align="center">
+  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_Cl%C3%BAsterKubernetes/Imagenes/Captura.PNG">
+</p>
 
 Monitoring with sysdig es una herramienta de vigilancia que brinda IBM y permite tener supervisión sobre diferentes servicios de IBM CLOUD. En esta guía se explicará el paso a paso para el aprovisionamiento de Monitoring With Sysdig en un Clúster de Kubernetes.
 
@@ -179,6 +183,7 @@ En IBMCLOUD, haga click sobre el “menú de hamburguesa” y seleccione *“obs
 4.	Copie la clave que aparece en pantalla.
 
 5.	Obtenga la URL donde se encuentran los puntos finales de Sysdig, como esta guía está enfocada en el aprovisionamiento de Monitoring With Sysdig en la región de EE.UU sur, la URL dónde se encuentra el punto final de Sysdig es la siguiente: 
+
 `*ingest.us-south.monitoring.cloud.ibm.com*`.
 
 Para más información sobre los puntos finales disponibles por regiones, visite el siguiente enlace: [Puntos finales del recopilador de Sysdig](https://cloud.ibm.com/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints&locale=es#endpoints_ingestion)
@@ -187,12 +192,16 @@ Para más información sobre los puntos finales disponibles por regiones, visite
 
 7.	Una vez se encuentre dentro de la visión general de la página del clúster, oprima en el botón **“Actions”** y seleccione **“terminal web”**.
 
-AQUI VA CAPTURA1
+<p align="center">
+  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_Cl%C3%BAsterKubernetes/Imagenes/Captura1.PNG">
+</p>
+
 
 8.	Se deberá desplegar en la parte inferior de la pantalla el terminal web del clúster.
 Consejo: Para mayor comodidad, haga click sobre el cuadrado que aparece en la esquina superior derecha de la terminal, esto le permitirá utilizarlo en otra pestaña del navegador.
 
 9.	Dentro del terminal web ejecute el siguiente comando:
+
 `curl -sL https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/IBMCloud-Kubernetes-Service/install-agent-k8s.sh | bash -s -- -a SYSDIG_ACCESS_KEY -c COLLECTOR_ENDPOINT -t TAG_DATA -ac 'sysdig_capture_enabled: false'`
 
 -	**SYSDIG_ACCESS_KEY** es la clave de ingestión de la instancia que ha recuperado anteriormente. (instrucción 4)
@@ -276,7 +285,10 @@ Por ejemplo, para configurar códigos de colores para una columna, siga los paso
 
 Para ver más detalles acerca de un nodo trabajador concreto, pulse en la entrada de la infraestructura y se abrirá en la tabla el panel de control _Visión general por host_. Puede explorar diferentes paneles de control y métricas pulsando el icono 
 
-CAPTURA2
+<p align="center">
+  <img width="auto" height="auto" src="https://github.com/javierjimenezm/IBM-Cloud-Observability/blob/master/Monitoring_with_Sysdig_Cl%C3%BAsterKubernetes/Imagenes/Captura2.PNG">
+</p>
+
 
 Tenga en cuenta que solo puede seleccionar métricas y paneles de control que sean relevantes para el nodo trabajador seleccionado.
 Para volver a la tabla Explorar completa, pulse el botón **X (volver a la tabla Explorar)**.
